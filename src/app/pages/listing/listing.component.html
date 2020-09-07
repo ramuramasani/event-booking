@@ -1,0 +1,51 @@
+<div class="container space">
+  <p style="text-align: center;" ><b>Number of available seats</b></p>
+  <mat-card>
+    <form (submit)="onClick(listForm)" #listForm="ngForm">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <img [src]="movieInfo.image" alt="Movie Icon">
+        </div>
+        <div class="form-group col-md-8">
+
+          <mat-form-field>
+            <mat-label> Name </mat-label>
+            <input matInput type="text" value="" id="name" name="Name" placeholder="" minlength="4" maxlength="8"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label> Email </mat-label>
+            <input matInput type="email" value="" id="email" name="Email" placeholder="" maxlength="" ngModel
+              required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label> Phone NO </mat-label>
+            <input matInput type="tel" value="" id="number" name="Phone" placeholder="" minlength="10" maxlength="10"
+              ngModel required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label> No Of seats </mat-label>
+            <mat-select name="Seats" ngModel required>
+              <mat-option *ngFor="let seat of seats" [value]="seat.value">
+                {{seat.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label> Name of Attendee 2 </mat-label>
+            <input matInput type="text" value="" id="attendee" name="Attendee" placeholder="" minlength="4"
+              maxlength="8" ngModel required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <button mat-raised-button type="submit" color="primary">Submit</button>
+        <button mat-raised-button type="reset" color="warn" (click)="bookingCancel()" >Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
